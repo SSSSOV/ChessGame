@@ -177,25 +177,97 @@ namespace ChessGame {
                 break;
 
                 case "queen":
-                    for (int i = 1; y - i >= 0; i++) if (board[x, y - i].getName() == "none") map[x, y - i] = 1; else break;
-                    for (int i = 1; y + i < 8; i++) if (board[x, y + i].getName() == "none") map[x, y + i] = 1; else break;
-                    for (int i = 1; x - i >= 0; i++) if (board[x - i, y].getName() == "none") map[x - i, y] = 1; else break;
-                    for (int i = 1; x + i < 8; i++) if (board[x + i, y].getName() == "none") map[x + i, y] = 1; else break;
-                    for (int i = 1; x - i >= 0 && y - i >= 0; i++) if (board[x - i, y - i].getName() == "none") map[x - i, y - i] = 1; else break;
-                    for (int i = 1; x - i >= 0 && y + i < 8; i++) if (board[x - i, y + i].getName() == "none") map[x - i, y + i] = 1; else break;
-                    for (int i = 1; x + i < 8 && y + i < 8; i++) if (board[x + i, y + i].getName() == "none") map[x + i, y + i] = 1; else break;
-                    for (int i = 1; x + i < 8 && y - i >= 0; i++) if (board[x + i, y - i].getName() == "none") map[x + i, y - i] = 1; else break;
+                    for (int i = 1; y - i >= 0; i++)
+                        if (board[x, y - i].getName() == "none")
+                            map[x, y - i] = 1;
+                        else if (board[x, y - i].getIdPlayer() != board[x, y].getIdPlayer())
+                            map[x, y - i] = 2;
+                        else break;
+                    for (int i = 1; y + i < 8; i++)
+                        if (board[x, y + i].getName() == "none")
+                            map[x, y + i] = 1;
+                        else if (board[x, y + i].getIdPlayer() != board[x, y].getIdPlayer())
+                            map[x, y + i] = 2;
+                        else break;
+                    for (int i = 1; x - i >= 0; i++)
+                        if (board[x - i, y].getName() == "none")
+                            map[x - i, y] = 1;
+                        else if (board[x - i, y].getIdPlayer() != board[x, y].getIdPlayer())
+                            map[x - i, y] = 2;
+                        else break;
+                    for (int i = 1; x + i < 8; i++)
+                        if (board[x + i, y].getName() == "none")
+                            map[x + i, y] = 1;
+                        else if (board[x + i, y].getIdPlayer() != board[x, y].getIdPlayer())
+                            map[x + i, y] = 2;
+                        else break;
+                    for (int i = 1; x - i >= 0 && y - i >= 0; i++)
+                        if (board[x - i, y - i].getName() == "none")
+                            map[x - i, y - i] = 1;
+                        else if (board[x - i, y - i].getIdPlayer() != board[x, y].getIdPlayer())
+                            map[x - i, y - y] = 2;
+                        else break;
+                    for (int i = 1; x - i >= 0 && y + i < 8; i++)
+                        if (board[x - i, y + i].getName() == "none")
+                            map[x - i, y + i] = 1;
+                        else if (board[x - i, y + i].getIdPlayer() != board[x, y].getIdPlayer())
+                            map[x - i, y + i] = 2;
+                        else break;
+                    for (int i = 1; x + i < 8 && y + i < 8; i++)
+                        if (board[x + i, y + i].getName() == "none")
+                            map[x + i, y + i] = 1;
+                        else if (board[x + i, y + i].getIdPlayer() != board[x, y].getIdPlayer())
+                            map[x + i, y + i] = 2;
+                        else break;
+                    for (int i = 1; x + i < 8 && y - i >= 0; i++)
+                        if (board[x + i, y - i].getName() == "none")
+                            map[x + i, y - i] = 1;
+                        else if (board[x + i, y - i].getIdPlayer() != board[x, y].getIdPlayer())
+                            map[x + i, y - i] = 2;
+                        else break;
                 break;
 
                 case "king":
-                    if (x - 1 >= 0 && y - 1 >= 0 && board[x - 1, y - 1].getName() == "none") map[x - 1, y - 1] = 1;
-                    if (y - 1 >= 0 && board[x, y - 1].getName() == "none") map[x, y - 1] = 1;
-                    if (x + 1 < 8 && y - 1 >= 0 && board[x + 1, y - 1].getName() == "none") map[x + 1, y - 1] = 1;
-                    if (x + 1 < 8 && board[x + 1, y].getName() == "none") map[x + 1, y] = 1;
-                    if (x + 1 < 8 && y + 1 < 8 && board[x + 1, y + 1].getName() == "none") map[x + 1, y + 1] = 1;
-                    if (y + 1 < 8 && board[x, y + 1].getName() == "none") map[x, y + 1] = 1;
-                    if (x - 1 >= 0 && y + 1 < 8 && board[x - 1, y + 1].getName() == "none") map[x - 1, y + 1] = 1;
-                    if (x - 1 >= 0 && board[x - 1, y].getName() == "none") map[x - 1, y] = 1;
+                    if (x - 1 >= 0 && y - 1 >= 0) {
+                        if (board[x - 1, y - 1].getName() == "none") 
+                            map[x - 1, y - 1] = 1;
+                        else if (board[x - 1, y - 1].getIdPlayer() != board[x, y].getIdPlayer())
+                                map[x - 1, y - 1] = 2; }
+                    if (y - 1 >= 0) {
+                        if(board[x, y - 1].getName() == "none") 
+                            map[x, y - 1] = 1;
+                        else if (board[x, y - 1].getIdPlayer() != board[x, y].getIdPlayer())
+                            map[x, y - 1] = 2;}
+                    if (x + 1 < 8 && y - 1 >= 0) {
+                        if(board[x + 1, y - 1].getName() == "none") 
+                            map[x + 1, y - 1] = 1;
+                        else if (board[x + 1, y - 1].getIdPlayer() != board[x, y].getIdPlayer())
+                            map[x + 1, y - 1] = 2;}
+                    if (x + 1 < 8) {
+                        if(board[x + 1, y].getName() == "none") 
+                            map[x + 1, y] = 1;
+                        else if (board[x + 1, y].getIdPlayer() != board[x, y].getIdPlayer())
+                            map[x + 1, y] = 2;}
+                    if (x + 1 < 8 && y + 1 < 8) {
+                        if(board[x + 1, y + 1].getName() == "none") 
+                            map[x + 1, y + 1] = 1;
+                        else if (board[x + 1, y + 1].getIdPlayer() != board[x, y].getIdPlayer())
+                            map[x + 1, y + 1] = 2;}
+                    if (y + 1 < 8) {
+                        if(board[x, y + 1].getName() == "none") 
+                            map[x, y + 1] = 1;
+                        else if (board[x, y + 1].getIdPlayer() != board[x, y].getIdPlayer())
+                            map[x, y + 1] = 2;}
+                    if (x - 1 >= 0 && y + 1 < 8) {
+                        if(board[x - 1, y + 1].getName() == "none") 
+                            map[x - 1, y + 1] = 1;
+                        else if (board[x - 1, y + 1].getIdPlayer() != board[x, y].getIdPlayer())
+                            map[x - 1, y + 1] = 2;}
+                    if (x - 1 >= 0) {
+                        if(board[x - 1, y].getName() == "none") 
+                            map[x - 1, y] = 1;
+                        else if (board[x - 1, y].getIdPlayer() != board[x, y].getIdPlayer())
+                            map[x - 1, y] = 2;}
                 break;
             }
             return map;

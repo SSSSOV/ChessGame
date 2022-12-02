@@ -24,8 +24,9 @@
         /// </summary>
         private void InitializeComponent() {
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
-            this.играToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.gameToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.newGameToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.settingsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.groupBox_ChessBoard = new System.Windows.Forms.GroupBox();
             this.label_whichPlayer = new System.Windows.Forms.Label();
             this.menuStrip1.SuspendLayout();
@@ -35,20 +36,21 @@
             // 
             this.menuStrip1.Font = new System.Drawing.Font("Cascadia Code SemiBold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.играToolStripMenuItem});
+            this.gameToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(436, 24);
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
             // 
-            // играToolStripMenuItem
+            // gameToolStripMenuItem
             // 
-            this.играToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.newGameToolStripMenuItem});
-            this.играToolStripMenuItem.Name = "играToolStripMenuItem";
-            this.играToolStripMenuItem.Size = new System.Drawing.Size(47, 20);
-            this.играToolStripMenuItem.Text = "Game";
+            this.gameToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.newGameToolStripMenuItem,
+            this.settingsToolStripMenuItem});
+            this.gameToolStripMenuItem.Name = "gameToolStripMenuItem";
+            this.gameToolStripMenuItem.Size = new System.Drawing.Size(47, 20);
+            this.gameToolStripMenuItem.Text = "Game";
             // 
             // newGameToolStripMenuItem
             // 
@@ -58,10 +60,18 @@
             this.newGameToolStripMenuItem.Text = "New game";
             this.newGameToolStripMenuItem.Click += new System.EventHandler(this.NewGame);
             // 
+            // settingsToolStripMenuItem
+            // 
+            this.settingsToolStripMenuItem.Name = "settingsToolStripMenuItem";
+            this.settingsToolStripMenuItem.Size = new System.Drawing.Size(179, 22);
+            this.settingsToolStripMenuItem.Text = "Settings";
+            this.settingsToolStripMenuItem.Click += new System.EventHandler(this.SeToolStripMenuItem_Click);
+            // 
             // groupBox_ChessBoard
             // 
             this.groupBox_ChessBoard.Enabled = false;
             this.groupBox_ChessBoard.Font = new System.Drawing.Font("Cascadia Code SemiBold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.groupBox_ChessBoard.ForeColor = System.Drawing.SystemColors.ControlText;
             this.groupBox_ChessBoard.Location = new System.Drawing.Point(12, 27);
             this.groupBox_ChessBoard.Name = "groupBox_ChessBoard";
             this.groupBox_ChessBoard.Size = new System.Drawing.Size(412, 427);
@@ -86,8 +96,11 @@
             this.Controls.Add(this.groupBox_ChessBoard);
             this.Controls.Add(this.menuStrip1);
             this.Font = new System.Drawing.Font("Cascadia Code SemiBold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MainMenuStrip = this.menuStrip1;
+            this.MaximizeBox = false;
             this.Name = "Main";
+            this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Hide;
             this.Text = "Form1";
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
@@ -99,9 +112,10 @@
         #endregion
 
         private MenuStrip menuStrip1;
-        private ToolStripMenuItem играToolStripMenuItem;
+        private ToolStripMenuItem gameToolStripMenuItem;
         private ToolStripMenuItem newGameToolStripMenuItem;
         private GroupBox groupBox_ChessBoard;
         private Label label_whichPlayer;
+        private ToolStripMenuItem settingsToolStripMenuItem;
     }
 }
