@@ -23,6 +23,7 @@
         /// the contents of this method with the code editor.
         /// </summary>
         private void InitializeComponent() {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SettingsForm));
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
@@ -36,9 +37,10 @@
             this.button_whiteColor = new System.Windows.Forms.Button();
             this.button_blackColor = new System.Windows.Forms.Button();
             this.comboBox_theme = new System.Windows.Forms.ComboBox();
-            this.button1 = new System.Windows.Forms.Button();
+            this.button_cancel = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.colorDialog = new System.Windows.Forms.ColorDialog();
+            this.checkBox_paintAllPosible = new System.Windows.Forms.CheckBox();
             this.groupBox1.SuspendLayout();
             this.groupBox_colorButtons.SuspendLayout();
             this.SuspendLayout();
@@ -176,18 +178,21 @@
             this.comboBox_theme.TabIndex = 3;
             this.comboBox_theme.SelectedIndexChanged += new System.EventHandler(this.comboBox_theme_SelectedIndexChanged);
             // 
-            // button1
+            // button_cancel
             // 
-            this.button1.Location = new System.Drawing.Point(179, 445);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 3;
-            this.button1.Text = "Cancel";
-            this.button1.UseVisualStyleBackColor = true;
+            this.button_cancel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.button_cancel.Location = new System.Drawing.Point(179, 234);
+            this.button_cancel.Name = "button_cancel";
+            this.button_cancel.Size = new System.Drawing.Size(75, 23);
+            this.button_cancel.TabIndex = 3;
+            this.button_cancel.Text = "Cancel";
+            this.button_cancel.UseVisualStyleBackColor = true;
+            this.button_cancel.Click += new System.EventHandler(this.button_cancel_Click);
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(98, 445);
+            this.button2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.button2.Location = new System.Drawing.Point(98, 234);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(75, 23);
             this.button2.TabIndex = 3;
@@ -195,18 +200,34 @@
             this.button2.UseVisualStyleBackColor = true;
             this.button2.Click += new System.EventHandler(this.buttonSave_Click);
             // 
+            // checkBox_paintAllPosible
+            // 
+            this.checkBox_paintAllPosible.AutoSize = true;
+            this.checkBox_paintAllPosible.Location = new System.Drawing.Point(12, 179);
+            this.checkBox_paintAllPosible.Name = "checkBox_paintAllPosible";
+            this.checkBox_paintAllPosible.Size = new System.Drawing.Size(215, 20);
+            this.checkBox_paintAllPosible.TabIndex = 4;
+            this.checkBox_paintAllPosible.Text = "Paint all possible actions.";
+            this.checkBox_paintAllPosible.UseVisualStyleBackColor = true;
+            this.checkBox_paintAllPosible.CheckedChanged += new System.EventHandler(this.checkBox_paintAllPosible_CheckedChanged);
+            // 
             // SettingsForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(267, 480);
+            this.ClientSize = new System.Drawing.Size(267, 269);
+            this.Controls.Add(this.checkBox_paintAllPosible);
             this.Controls.Add(this.button2);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.button_cancel);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.label1);
             this.Font = new System.Drawing.Font("Cascadia Code", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MaximizeBox = false;
             this.Name = "SettingsForm";
-            this.Text = "SettingsForm";
+            this.ShowInTaskbar = false;
+            this.Text = "Settings";
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.groupBox_colorButtons.ResumeLayout(false);
@@ -226,7 +247,7 @@
         private Button button_whiteColor;
         private Button button_moveColor;
         private Button button_cutColor;
-        private Button button1;
+        private Button button_cancel;
         private Button button2;
         private GroupBox groupBox_colorButtons;
         private Label label6;
@@ -234,5 +255,6 @@
         private Label label4;
         private Label label3;
         private ColorDialog colorDialog;
+        private CheckBox checkBox_paintAllPosible;
     }
 }
